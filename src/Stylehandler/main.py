@@ -35,7 +35,7 @@ class Stylehandler:
 
         # Iterate through provided styles and generate a final dict using a recursive helper function
         for style in styles:
-            final_attributes.update(StyleHandler.__apply_helper(style, {}))
+            final_attributes.update(Stylehandler.__apply_helper(style, {}))
 
         # Remove extend styles if present
         if "extends" in final_attributes:
@@ -55,8 +55,8 @@ class Stylehandler:
         """
 
         # Recursive calls through inherited styles to get style attributes back to front
-        for child_style in StyleHandler.styles[style].get("extends", ()):
-            attributes_aggregate = StyleHandler.__apply_helper(child_style, attributes_aggregate)
+        for child_style in Stylehandler.styles[style].get("extends", ()):
+            attributes_aggregate = Stylehandler.__apply_helper(child_style, attributes_aggregate)
 
-        attributes_aggregate.update(StyleHandler.styles[style])
+        attributes_aggregate.update(Stylehandler.styles[style])
         return attributes_aggregate

@@ -1,2 +1,7 @@
 
 .idea/
+
+dist/
+
+*.egg-info
+src/Stylehandler/__pycache__/

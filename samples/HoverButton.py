@@ -1,8 +1,9 @@
-from src.Stylehandler import StyleHandler
+from src.Stylehandler import Stylehandler
 from tkinter import *
 
+
 class HoverButton(Button):
-    """A TK Button that changes styles when you hover over it (utilises StyleHandler)"""
+    """A TK Button that changes styles when you hover over it (utilises Stylehandler)"""
 
     def __init__(self, parent, regular_style: str, hover_style: str, *args, **kwargs):
         """
@@ -14,16 +15,17 @@ class HoverButton(Button):
         """
 
         super().__init__(parent, *args, **kwargs)
-        StyleHandler.apply(self, regular_style)
-        self.bind("<Enter>", lambda _: StyleHandler.apply(self, hover_style))
-        self.bind("<Leave>", lambda _: StyleHandler.apply(self, regular_style))
+        Stylehandler.apply(self, regular_style)
+        self.bind("<Enter>", lambda _: Stylehandler.apply(self, hover_style))
+        self.bind("<Leave>", lambda _: Stylehandler.apply(self, regular_style))
+
 
 if __name__ == "__main__":
     root = Tk()
 
-    StyleHandler.styles = {
+    Stylehandler.styles = {
         "HoverButtonActive": {
-            "background":  "Pink",
+            "background": "Pink",
             "foreground": "Black",
         },
         "HoverButtonInactive": {
